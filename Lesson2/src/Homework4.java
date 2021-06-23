@@ -6,7 +6,6 @@ public class Homework4 {
             if (mass[i] > max) {
                 max = mass[i];
             }
-
         }
         System.out.println(max);
     }
