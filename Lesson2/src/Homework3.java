@@ -4,8 +4,7 @@ public class Homework3 {
         int count = 0;
         for (int i = 0; i < mass.length; i++) {
             count += mass[i];
-            
-        }
+         }
         System.out.println((double) count / mass.length);
     }
 }
