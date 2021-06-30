@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Homework4 {
     public static void main(String[] args) {
@@ -11,8 +12,8 @@ public class Homework4 {
         randomArray();
         array20();
         maxArrayNumber();
-
-
+        duplicates();
+        roundMatrix();
     }
 
 
@@ -158,6 +159,20 @@ public class Homework4 {
 //        Пример: {0,34,46,31,20,1,28}
 //        Массив не имеет повторяющихся элементов
 
+    private static void duplicates() {
+        /*int[] array = new int[]{0, 3, 46, 3, 2, 1, 2};
+        Arrays.sort(array);
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == array[i + 1]) {
+                System.out.print("Массив имеет повторяющиеся элементы: " + array[i] + " ");
+            } else System.out.print("Массив не имеет повторяющихся элементов");
+
+        }*/
+
+
+    }
+
+
 //        10) Создаём квадратную матрицу, размер вводим с клавиатуры.
 //        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
 //        Далее необходимо транспонировать матрицу(1 столбец станет 1-й строкой, 2-й столбец - 2-й строкой и т. д.)
@@ -167,5 +182,26 @@ public class Homework4 {
 //          3 3 4 5      3 8 4 6
 //          1 5 6 7      4 9 5 7
 
+    private static void roundMatrix() {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Введите размер матрицы: ");
+        int matrix = console.nextInt();
+        int[][] array = new int[matrix][matrix];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (int) ((Math.random() * 50) - Math.pow(matrix, 2));
+                System.out.print(array[i][j] + "   ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[j][i] + "   ");
 
+            }
+            System.out.println();
+        }
+
+    }
 }
