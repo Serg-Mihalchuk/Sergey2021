@@ -1,18 +1,38 @@
 package com.home.model;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Computer computer = new Computer();
-        computer.computerSpecifications(8, 16, 500, 2);
-        System.out.println();
-        /*Computer computer1 = new Computer();
-        computer1.computerSpecifications(16, 32, 2000, 20);*/
+        Computer computer = new Computer("IBM", 8, "Barracuda", 2);
+        System.out.println(computer.toString());
+        System.out.println(computer.resourceOnOff);
 
-        computer.ComputerOn();
+        computer.on();
+        for (int i = computer.resourceOnOff; i >= 0; i--) {
+            System.out.println("Внимание! Введите 0 или 1");
+            Scanner scanner = new Scanner(System.in);
+            int number = scanner.nextInt();
+            Random r = new Random();
+            int random = r.nextInt(2);
+            if (random == number) {
+                computer.off();
+            } else if (computer.resourceOnOff == 0) {
+                computer.burn();
+                break;
+            } else {
+                computer.burn();
+                break;
+            }
 
+        }
 
     }
 
+
 }
+
+
