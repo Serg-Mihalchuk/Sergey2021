@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Homework3 {
@@ -6,11 +6,11 @@ public class Homework3 {
     public static void main(String[] args) {
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
         printArray();
-        /*System.out.println(operation(-1));
-        System.out.println(operation(0));*/
-        /*System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 3, 3, 9, 5, 7}));
-        calculateSumOfDiagonalElements();*/
-        countDevs(101);
+        System.out.println(operation(-1));
+        System.out.println(operation(0));
+        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{-2, -7, -6, -8, 1, 3, -5}));
+        calculateSumOfDiagonalElements();
+        countDevs(112);
         foobar(6);
         foobar(10);
         foobar(15);
@@ -48,14 +48,11 @@ public class Homework3 {
      */
     public static int operation(int number) {
         /*if (number > 0) {
-            number += 1;
-            //return number;
+            number++;
         } else if (number < 0) {
             number -= 2;
-            //return number;
-        } else if (number == 0) {
+        } else {
             number = 10;
-
         }*/
         return number;
     }
@@ -67,11 +64,11 @@ public class Homework3 {
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
         int count = 0;
-       /* for (int i = 0; i < ints.length; i++) {
-            if (ints[i] % 2 == 1) {
+        for (int i = 0; i < ints.length; i++) {
+            if (ints[i] % 2 != 0) {
                 count++;
             }
-        }*/
+        }
         return count;
     }
 
@@ -85,9 +82,17 @@ public class Homework3 {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-        if (count == 1 || count % 10 == 1) {
+       /* int c100 = count % 100;
+        int c10 = count % 10;
+        if (c10 == 1) {
             System.out.printf("%d программист", count);
-        } else if (count) System.out.printf("%d программистов", count);
+        } else if (c100 >= 11 && c100 <= 19) {
+            System.out.printf("%d программистов", count);
+        } else if (c10 >= 2 && c10 <= 4) {
+            System.out.printf("%d программиста", count);
+        } else {
+            System.out.printf("%d программистов", count);
+        }*/
 
 
     }
@@ -98,15 +103,37 @@ public class Homework3 {
      * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
      * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
      */
+
     public static void foobar(int number) {
-        // тут пишем логику
+        if (number % 3 == 0) {
+            System.out.print("foo");
+        }
+        if (number % 5 == 0) {
+            System.out.print("bar");
+        }
     }
 
     /**
      * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
      */
     public static void calculateSumOfDiagonalElements() {
-        //пишем логику и выводим результат используя System.out.println
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+//        int[][] matrix = new int[size][size];
+        Random random = new Random();
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                int value = random.nextInt(100);
+//                matrix[i][j] = value;
+                System.out.print(value + " ");
+                if (i == j) {
+                    sum += value;
+                }
+            }
+            System.out.println();
+        }
+        System.out.println("Сумма = " + sum);
     }
 
 
@@ -133,7 +160,33 @@ public class Homework3 {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-        // тут пишем логику
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int height = scanner.nextInt();
+        int width = scanner.nextInt();
+
+        if (height > 0 & width > 0) {
+            int[][] matrix = new int[height][width];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j] = random.nextInt(100);
+                }
+            }
+            for (int[] row : matrix) {
+                for (int element : row) {
+                    if (element % 3 == 0) {
+                        System.out.print("+ ");
+                    } else if (element % 7 == 0) {
+                        System.out.print("- ");
+                    } else {
+                        System.out.print("* ");
+                    }
+                }
+                System.out.print("\n");
+            }
+        } else {
+            System.out.println("unavailable values");
+        }
     }
 
     /**
@@ -143,6 +196,22 @@ public class Homework3 {
      */
     public static void printPrimeNumbers() {
         // тут пишем логику
+        int count = 0;
+        for (int i = 2; i < 1000; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    break;
+                }
+                if (i == j + 1) {
+                    count++;
+                    System.out.print(i + " ");
+                }
+            }
+        }
+        System.out.println();
+        System.out.println(count);
     }
 }
+
+
 

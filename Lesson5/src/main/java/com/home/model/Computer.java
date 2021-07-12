@@ -9,6 +9,7 @@ public class Computer {
     int ram;
     String HDD;
     int resourceOnOff;
+    boolean burn;
 
     //параметрический метод инициализации через конструктор
     public Computer(String CPU, int ram, String HDD, int resourceOnOff) {
@@ -31,14 +32,27 @@ public class Computer {
 
     //включение компьютера
     void on() {
-        System.out.println("Компьютер включен");
-
+        if (this.resourceOnOff == 0) {
+            burn();
+        } else {
+            System.out.println("Компьютер включен");
+        }
     }
 
     //выключение компьютера
     void off() {
-        System.out.println("Компьютер выключен");
-
+        System.out.println("Внимание! Введите 0 или 1");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        Random r = new Random();
+        int random = r.nextInt(2);
+        if (random == number) {
+            System.out.println("Компьютер выключен");
+            this.resourceOnOff--;
+        } else {
+            burn();
+            this.resourceOnOff = 0;
+        }
     }
 
     //компьютер сгорел
