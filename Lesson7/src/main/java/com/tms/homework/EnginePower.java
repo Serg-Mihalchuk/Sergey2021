@@ -9,15 +9,13 @@ import lombok.ToString;
 @Setter
 public class EnginePower {
 
-    public EnginePower(int enginePower) {
-    }
 
-    public double setEnginePower(int enginePower) {
+        public double setEnginePower(int enginePower) {
 
-        double kWt = enginePower * 0.74;
-        System.out.println("Мощность двигателя в кВт" + enginePower);
-        return kWt;
+            double kWt = enginePower * 0.74;
+            System.out.println("Мощность двигателя в кВт" + enginePower);
+            return kWt;
 
 
-    }
+        }
 }
