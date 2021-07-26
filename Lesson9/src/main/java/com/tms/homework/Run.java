@@ -17,6 +17,8 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.max;
+
 @Getter
 public class Run {
 
@@ -83,6 +85,9 @@ public class Run {
             System.out.println("Цена данного экземпляра " + robot.getPrice());
 
         }
+        System.out.println();
+        int result = max(max(robot1.getPrice(), robot2.getPrice()), robot3.getPrice());
+        System.out.println("Самый дорогой робот стоит " + result);
 
 
         //System.out.println(Collections.max();
