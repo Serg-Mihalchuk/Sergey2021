@@ -23,8 +23,6 @@ public class Cars extends LandTransport {
         this.numberOfPassengers = numberOfPassengers;
     }
 
-    EnginePower power = new EnginePower(getEnginePower());
-
 
     public double distanceTraveled(double time) {
         double result = time * getMaxSpeed();

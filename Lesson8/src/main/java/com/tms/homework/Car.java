@@ -28,7 +28,7 @@ public class Car implements CarActions {
             double time = scanner.nextDouble();
             double result = time * getMaxSpeed();
             System.out.println("С максимальной скоростью вы сможете проехать: " + result);
-            System.out.println("Бака топлива " + tank.getTankVolume() + "Вам хватит на " +);
+            System.out.println("Бака топлива " + tank.getTankVolume() + "Вам хватит на ");
 
 
         }
