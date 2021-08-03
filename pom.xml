@@ -27,6 +27,10 @@
         <module>Lesson7.1</module>
         <module>Lesson8</module>
         <module>Lesson9</module>
+        <module>Lesson10</module>
+        <module>Lesson10.1</module>
+        <module>Lesson11</module>
+        <module>Lesson12</module>
     </modules>
 
     <dependencies>
@@ -35,6 +39,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
