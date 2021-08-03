@@ -95,14 +95,27 @@ public class TextFormatter {
     //  вхождения символа(А) до, последнего вхождения сивола(B).
 
     public void сutSubstringFromStringByIndex(String string) {
-        try {
+        /*try {
             int index1 = string.indexOf("А");
             int index2 = string.lastIndexOf("Б");
             String result = string.substring(index1, index2);
             System.out.println(result);
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println("Указанный вами индекс не существует");
+        }*/
+
+
+        //Заменить все вхождения символа стоящего в позиции (3)
+        // на символ стоящий в позиции 0
+        if (string == null) {
+            System.out.println("Строка пустая!!!");
+        } else {
+            char ch1 = string.charAt(3);
+            char ch2 = string.charAt(0);
+            String result1 = string.replace(ch1, ch2);
+            System.out.println(result1);
         }
+
 
     }
 
