@@ -100,7 +100,7 @@ public class TextFormatter {
         /*try {
             int index1 = string.indexOf("А");
             int index2 = string.lastIndexOf("Б");
-            String result = string.substring(index1, index2);
+            String result = string.substring(index1, index2+1);
             System.out.println(result);
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println("Указанный вами индекс не существует");
