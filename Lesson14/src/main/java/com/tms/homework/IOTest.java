@@ -102,45 +102,6 @@ public class IOTest {
 
     }
 
-    // Вычислить количество строк в файле
-
-    public static int CountLinesInFile(String filename) throws IOException {
-        // 1. Объявить внутренние переменные
-        int count = 0; // количество строк в файле - результат
-        FileReader fr = null;
-        int symbol;
-
-        try {
-            // 2. Попытка открыть файл для чтения
-            fr = new FileReader(filename);
-
-            // Цикл чтения символов из файла и подсчета их количества
-            do {
-                // Считать символ из файла
-                symbol = fr.read();
-
-                // Проверить, есть ли символ конца строки
-                if ((char) symbol == '\n')
-                    count++; // Увеличить количество строк в файле на 1
-            } while (fr.ready()); // Проверка на конец файла
-        } catch (IOException e) {
-            // 3. Если файл не открыт, то вывести соответствующее сообщение
-            System.out.println("I/O error: " + e);
-        } finally {
-
-            // 4. Закрыть файл, если он был открыт
-            try {
-                if (fr != null) {
-                    fr.close();
-                }
-            } catch (IOException e) {
-                System.out.println("File close error.");
-            }
-        }
-
-        // 5. Вернуть результат
-        return count;
-    }
 
         /*
         String path = "folder1/folder2/folder3";

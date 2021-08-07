@@ -1,4 +1,4 @@
-package com.tms.homework;
+package com.tms.homework2;
 
 public class TextFormatter {
 }
