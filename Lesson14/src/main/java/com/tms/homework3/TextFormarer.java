@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.BreakIterator;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -67,32 +65,47 @@ public class TextFormarer {
 
         //проверка на наличие слов из blackList
         fullTextWords.retainAll(blackListWords);
-        System.out.println(fullTextWords);
+        //убираем повторяющиеся элементы BlackList с использованием HashSet
+        Set<String> set = new HashSet<>(fullTextWords);
+        fullTextWords.clear();
+        fullTextWords.addAll(set);
+        System.out.println();
 
         String[] resulOutStings = new String[fullTextWords.size()];
         for (int i = 0; i < fullTextWords.size(); i++) {
             resulOutStings[i] = fullTextWords.get(i);
         }
-        System.out.println(Arrays.toString(resulOutStings));
+//        System.out.println(Arrays.toString(resulOutStings));
 
 
         if (fullTextWords.size() != 0) {
+            System.out.println("В тексте присутствуют слова паразиты: " + fullTextWords);
             System.out.println("Текст не прошел проверку на цензуру");
-            for (String s : resultText) {
-                String[] words = s.split("(?U)\\W+");
-                for (int i = 0; i < words.length; i++) {
-                    for (int j = 0; j < resulOutStings.length; j++) {
-                        if (words[i].equalsIgnoreCase(resulOutStings[j])) {
-                            System.out.println(s);
-                        }
-                    }
-                }
-            }
-        } else {
-            System.out.println("Текст прошел проверку на цензуру");
+            System.out.println("Необходимо исправить текст:");
+
+
+//            for (String s : resultText) {
+//                Set<String> setResultText = new HashSet<>(resultText);
+//                resultText.clear();
+//                resultText.addAll(setResultText);
+//                String []
+//                String[] words = s.split("(?U)\\W+");
+//                for (int i = 0; i < words.length; i++) {
+//                    for (int j = 0; j < setResultText.size(); j++) {
+//                        System.out.println();
+//                        if (words[i].equalsIgnoreCase(setResultText.toArray[j])) {
+//                            System.out.println(s);
+//                        }
+//                    }
+//                }
+//            }
+//
+//        } else {
+//            System.out.println("Текст прошел проверку на цензуру");
+//        }
+
+
         }
-
-
     }
 }
 

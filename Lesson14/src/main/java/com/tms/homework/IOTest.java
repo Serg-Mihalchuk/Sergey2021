@@ -70,6 +70,8 @@ public class IOTest {
         }
     }
 
+//     Files.readAllLines(Paths.get("hw1/input.txt")) использовать для чтения по строкам!!!!!
+
 
     // с использованием класса Files и Stream
         /*List<String> result = new ArrayList<>();
@@ -96,6 +98,9 @@ public class IOTest {
 
     //проверка на полиндром
     public static boolean isPolindroms(String line) {
+        if (line.length() < 2) {
+            return false;
+        }
         StringBuilder strBuilder = new StringBuilder(line);
         strBuilder.reverse();
         return strBuilder.toString().equals(line);

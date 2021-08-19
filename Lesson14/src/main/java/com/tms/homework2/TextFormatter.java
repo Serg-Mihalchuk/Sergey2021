@@ -44,6 +44,8 @@ public class TextFormatter {
 
         }
 
+//        можно сразу через BreakIterator результат поделить на слова !!!!!!!!!
+
 //        strings.forEach(System.out::println);
 //        System.out.println("");
         List<String> full = new ArrayList<>();
